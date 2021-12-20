@@ -36,7 +36,8 @@ class botDrawing {
   }
 
   void render_to_pdf (int line_count) {
-    String pdfname = "gcode\\gcode_" + basefile_selected + ".pdf";
+    //String pdfname = "gcode\\gcode_" + basefile_selected + ".pdf"; // Windows
+    String pdfname = "gcode/gcode_" + basefile_selected + ".pdf"; // Mac
     PGraphics pdf = createGraphics(img.width, img.height, PDF, pdfname);
     pdf.beginDraw();
     pdf.background(255, 255, 255);
