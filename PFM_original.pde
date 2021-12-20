@@ -39,8 +39,8 @@ class PFM_original implements pfm {
     //image_dilate();
     //image_invert();
     //image_blur(2);
-    image_boarder("b1.png", 0, 0);
-    image_boarder("b11.png", 0, 0);
+    image_border("b1.png", 0, 0);
+    image_border("b11.png", 0, 0);
     image_desaturate();
   }
   

@@ -27,7 +27,7 @@ All notable changes to this project will be documented in this file.
 - CHANGELOG
 
 ### Changed
-- Boarders can now be stacked
+- Borders can now be stacked
 - Allow for <ctrl> key combinations
 - Remapped keyboard for displaying individual pens
 - Most keyboard shortcuts now support up to 10 pens

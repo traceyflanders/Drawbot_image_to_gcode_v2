@@ -41,7 +41,7 @@ int     current_copic_set = 0;
 int     display_line_count;
 String  display_mode = "drawing";
 PImage  img_orginal;               // The original image
-PImage  img_reference;             // After pre_processing, croped, scaled, boarder, etc.  This is what we will try to draw. 
+PImage  img_reference;             // After pre_processing, croped, scaled, border, etc.  This is what we will try to draw. 
 PImage  img;                       // Used during drawing for current brightness levels.  Gets damaged during drawing.
 float   gcode_offset_x;
 float   gcode_offset_y;

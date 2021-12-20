@@ -72,7 +72,8 @@ void create_gcode_files (int line_count) {
     lines_drawn = 0;
     x = 0;
     y = 0;
-    String gname = "gcode\\gcode_" + basefile_selected + "_pen" + p + "_" + copic_sets[current_copic_set][p] + ".txt";
+    // String gname = "gcode\\gcode_" + basefile_selected + "_pen" + p + "_" + copic_sets[current_copic_set][p] + ".txt"; // Windows
+    String gname = "gcode/gcode_" + basefile_selected + "_pen" + p + "_" + copic_sets[current_copic_set][p] + ".txt"; // Mac
     OUTPUT = createWriter(sketchPath("") + gname);
     OUTPUT.println(gcode_comments);
     gcode_header();
@@ -140,7 +141,8 @@ void create_gcode_test_file () {
   // The dx.min are already scaled to gcode.
   float test_length = 25.4 * 2;
   
-  String gname = "gcode\\gcode_" + basefile_selected + "_test.txt";
+  // String gname = "gcode\\gcode_" + basefile_selected + "_test.txt"; // Windows
+  String gname = "gcode/gcode_" + basefile_selected + "_test.txt"; // Mac
   OUTPUT = createWriter(sketchPath("") + gname);
   OUTPUT.println("(This is a test file to draw the extreams of the drawing area.)");
   OUTPUT.println("(Draws a 2 inch mark on all four corners of the paper.)");
@@ -202,7 +204,8 @@ void create_svg_file (int line_count) {
   // Inkscape versions before 0.91 used 90dpi, Today most software assumes 96dpi.
   float svgdpi = 96.0 / 25.4;
   
-  String gname = "gcode\\gcode_" + basefile_selected + ".svg";
+  // String gname = "gcode\\gcode_" + basefile_selected + ".svg"; // Windows
+  String gname = "gcode/gcode_" + basefile_selected + ".svg"; // Mac
   OUTPUT = createWriter(sketchPath("") + gname);
   OUTPUT.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
   OUTPUT.println("<svg width=\"" + svg_format(img.width * gcode_scale) + "mm\" height=\"" + svg_format(img.height * gcode_scale) + "mm\" xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">");

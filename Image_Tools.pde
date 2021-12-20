@@ -56,7 +56,8 @@ void save_jpg() {
   img_drawing = loadImage("tmptif.tif");
   img_drawing2 = createImage(img.width, img.height, RGB);
   img_drawing2.copy(img_drawing, 0, 0, img.width, img.height, 0, 0, img.width, img.height);
-  img_drawing2.save("gcode\\gcode_" + basefile_selected + ".jpg");
+  img_drawing2.save("gcode/gcode_" + basefile_selected + ".jpg"); // Mac
+  // img_drawing2.save("gcode\\gcode_" + basefile_selected + ".jpg"); // Windows
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -145,28 +146,28 @@ void image_crop() {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-void image_boarder(String fname, int shrink, int blur) {
+void image_border(String fname, int shrink, int blur) {
   // A quick and dirty way of softening the edges of your drawing.
-  // Look in the boarders directory for some examples.
-  // Ideally, the boarder will have similar dimensions as the image to be drawn.
+  // Look in the borders directory for some examples.
+  // Ideally, the border will have similar dimensions as the image to be drawn.
   // For far more control, just edit your input image directly.
   // Most of the examples are pretty heavy handed so you can "shrink" them a few pixels as desired.
   // It does not matter if you use a transparant background or just white.  JPEG or PNG, it's all good.
   //
-  // fname:   Name of boarder file.
-  // shrink:  Number of pixels to pull the boarder away, 0 for no change. 
-  // blur:    Guassian blur the boarder, 0 for no blur, 10+ for a lot.
+  // fname:   Name of border file.
+  // shrink:  Number of pixels to pull the border away, 0 for no change. 
+  // blur:    Guassian blur the border, 0 for no blur, 10+ for a lot.
   
-  //PImage boarder = createImage(img.width+(shrink*2), img.height+(shrink*2), RGB);
-  PImage temp_boarder = loadImage("boarder/" + fname);
-  temp_boarder.resize(img.width, img.height);
-  temp_boarder.filter(GRAY);
-  temp_boarder.filter(INVERT);
-  temp_boarder.filter(BLUR, blur);
+  //PImage border = createImage(img.width+(shrink*2), img.height+(shrink*2), RGB);
+  PImage temp_border = loadImage("border/" + fname);
+  temp_border.resize(img.width, img.height);
+  temp_border.filter(GRAY);
+  temp_border.filter(INVERT);
+  temp_border.filter(BLUR, blur);
   
-  //boarder.copy(temp_boarder, 0, 0, temp_boarder.width, temp_boarder.height, 0, 0, boarder.width, boarder.height);
-  img.blend(temp_boarder, shrink, shrink, img.width, img.height,  0, 0, img.width, img.height, ADD); 
-  gcode_comment("image_boarder: " + fname + "   " + shrink + "   " + blur);
+  //border.copy(temp_border, 0, 0, temp_border.width, temp_border.height, 0, 0, border.width, border.height);
+  img.blend(temp_border, shrink, shrink, img.width, img.height,  0, 0, img.width, img.height, ADD); 
+  gcode_comment("image_border: " + fname + "   " + shrink + "   " + blur);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
